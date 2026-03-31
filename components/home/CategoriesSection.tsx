@@ -73,14 +73,14 @@ const CategoryShowcase = () => {
 
   return (
     <div
-      className="py-12 px-6"
+      className="py-12 px-6 "
       style={{
         background:
           "linear-gradient(to bottom, #F3EDC9 0%, #F6F0D5 25%, #FDFAF0 50%, white 50%)",
       }}
     >
       {/* Container with fixed width and arrows */}
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 ">
         {/* Left Arrow */}
         <button
           onClick={() => scroll("left")}
@@ -111,12 +111,12 @@ const CategoryShowcase = () => {
         <div
           ref={scrollContainerRef}
           onScroll={checkScroll}
-          className="flex overflow-x-auto gap-6 scrollbar-hide px-2"
+          className="flex overflow-x-auto gap-6 scrollbar-hide px-2 pb-7 border-b-2 border-gray-200"
           style={{ width: "calc(100% - 100px)" }}
         >
-          {categories.map((category) => (
+          {categories.map((category, i) => (
             <div
-              key={category.name}
+              key={i}
               className="bg-white border-1 border-[#eaeaea] shadow-md relative group cursor-pointer h-48 flex-shrink-0 w-64"
             >
               {/* The Main Image */}

@@ -1,7 +1,7 @@
-import BestDealsPage from "@/components/home/BestDeals";
-import CategoryShowcase from "@/components/home/CategoriesSection";
+import BestDealsPage from "@/features/products/components/BestDeals";
+import CategoriesSectionWrapper from "@/features/categories/components/CategoriesSectionWrapper";
 import HeroSection from "@/components/home/HeroSection";
-import NewArrivals from "@/components/home/NewArrivals";
+import NewArrivals from "@/features/products/components/NewArrivals";
 import Footer from "@/components/shared/Footer";
 import Navbar from "@/components/shared/Navbar";
 import Toolbar from "@/components/shared/Toolbar";
@@ -12,7 +12,7 @@ export default function Home() {
       <Navbar />
       <Toolbar />
       <HeroSection />
-      <CategoryShowcase />
+      <CategoriesSectionWrapper />
       <NewArrivals />
       <BestDealsPage />
       <Footer />

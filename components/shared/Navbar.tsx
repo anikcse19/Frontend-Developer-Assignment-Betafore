@@ -3,15 +3,21 @@ import SearchBar from "./SearchBar";
 
 const Navbar = () => {
   return (
-    <div className="bg-[#03484D] py-4 px-16">
-      <div className="flex justify-between">
+    <div className="bg-[#03484D]">
+      <div className="flex justify-between container mx-auto py-3.5">
         {/* left side */}
         <div className="flex items-center gap-10">
-          <div>
-            <Image src="/images/logo.png" alt="Logo" width={132} height={50} />
-          </div>
+          <Image
+            src="/images/logo.png"
+            alt="Logo"
+            width={132}
+            height={48}
+            className="w-auto! h-auto!"
+            loading="eager"
+          />
           <SearchBar />
         </div>
+
         {/* right side */}
         <div className="flex items-center gap-10">
           <div className="text-white text-[9px]">

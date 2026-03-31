@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { Product } from "@/types/product";
+import { Product } from "@/features/products/types/products";
 
 interface ProductCardProps {
   product: Product;

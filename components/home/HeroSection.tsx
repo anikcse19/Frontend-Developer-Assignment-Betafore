@@ -6,7 +6,7 @@ const HeroSection = () => {
       {/* Background Image */}
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/images/banner1.png"
+          src="/images/banner1.svg"
           alt="Hero Background"
           fill
           className="object-contain object-center"
@@ -15,7 +15,7 @@ const HeroSection = () => {
         />
       </div>
 
-      <div className="relative z-10 h-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center px-16 py-8">
+      <div className="relative container mx-auto z-10 h-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center py-8">
         {/* Left Content */}
         <div className="z-10 max-w-lg">
           <h1 className="text-3xl md:text-5xl font-light text-[#333333] leading-tight">
@@ -39,17 +39,6 @@ const HeroSection = () => {
             View More
           </button>
         </div>
-
-        {/* Right Content (Images & Badge) */}
-      </div>
-      <div className="absolute right-48 top-12 flex justify-center items-end">
-        <Image
-          src="/images/discount.png"
-          alt="40% Off"
-          width={165}
-          height={159}
-          // className="absolute -top-4 -right-4"
-        />
       </div>
     </div>
   );

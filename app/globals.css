@@ -25,9 +25,14 @@ body {
   padding: 0;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
+
+  .container {
+    @apply px-4;
+  }
 }
 
 /* Hide scrollbar for horizontal scroll */

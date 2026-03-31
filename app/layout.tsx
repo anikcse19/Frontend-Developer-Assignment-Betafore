@@ -30,11 +30,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${centuryGothic.variable} h-full antialiased`}
-    >
-      <body className={`${centuryGothic.className} min-h-full flex flex-col`}>{children}</body>
+    <html lang="en" className={`${centuryGothic.variable} h-full antialiased`}>
+      <body className={`${centuryGothic.className} min-h-full flex flex-col`}>
+        {children}
+      </body>
     </html>
   );
 }

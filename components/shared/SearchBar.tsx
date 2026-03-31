@@ -14,13 +14,13 @@ const SearchBar = () => {
       </button>
 
       {/* Vertical Divider */}
-      <div className="w-[1px] h-10 bg-gray-300 mx-1"></div>
+      <div className="w-px h-10 bg-gray-300 mx-1"></div>
 
       {/* Search Input */}
       <input
         type="text"
         placeholder="Search for products"
-        className="flex-grow w-64 px-4 py-2 text-sm text-gray-600 outline-none placeholder-gray-400"
+        className="grow w-64 px-4 py-2 text-sm text-gray-600 outline-none placeholder-gray-400"
       />
 
       {/* Search Button */}

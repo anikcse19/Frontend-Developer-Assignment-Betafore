@@ -37,8 +37,6 @@ frontend-assessment/
 ├── lib/                          # Utilities
 │   ├── error-handler.ts          # Centralized error handling with logging
 │   └── constants.ts              # API config, error config
-├── hooks/                        # Custom React hooks
-│   └── use-error-handler.ts      # Error handler hook for components
 ├── types/                        # Global type definitions
 │   └── error.ts                  # AppError, ErrorCode, ErrorSeverity
 ├── constants/                    # App-wide constants

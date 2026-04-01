@@ -1,11 +1,3 @@
-/**
- * Route-Specific Error Boundary
- * Catches errors in nested components and displays an error message
- * This error UI replaces the page content but keeps the layout intact
- *
- * Next.js Documentation: https://nextjs.org/docs/app/building-your-application/routing/error-handling#error-file
- */
-
 "use client"; // Error components must be Client Components
 
 import { useEffect } from "react";
@@ -164,9 +156,7 @@ export default function Error({
         {/* Support Link */}
         {error.digest && (
           <div className="text-center mt-6">
-            <p className="text-xs text-gray-500">
-              Error ID: {error.digest}
-            </p>
+            <p className="text-xs text-gray-500">Error ID: {error.digest}</p>
           </div>
         )}
       </div>

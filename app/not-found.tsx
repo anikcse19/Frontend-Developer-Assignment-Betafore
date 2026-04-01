@@ -1,11 +1,3 @@
-/**
- * Not Found Page (404)
- * Displayed when a route doesn't exist
- * This is part of the comprehensive error handling system
- *
- * Next.js Documentation: https://nextjs.org/docs/app/api-reference/file-conventions/not-found
- */
-
 "use client";
 
 import Link from "next/link";

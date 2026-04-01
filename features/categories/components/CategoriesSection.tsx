@@ -43,15 +43,15 @@ const CategoryShowcase = () => {
           "linear-gradient(to bottom, #F3EDC9 0%, #F6F0D5 25%, #FDFAF0 50%, white 50%)",
       }}
     >
-      <div className="container mx-auto pt-3.75 pb-10.25 border-b-2 border-gray-200 relative px-52">
+      <div className="container mx-auto pt-3.75 pb-10.25 border-b-2 border-gray-200 relative px-8 sm:px-12 md:px-20 lg:px-52">
         <Swiper
           onSwiper={(swiper) => {
             swiperRef.current = swiper;
           }}
           slidesPerView={4}
           spaceBetween={24}
-          slidesOffsetBefore={40}
-          slidesOffsetAfter={40}
+          slidesOffsetBefore={0}
+          slidesOffsetAfter={0}
           breakpoints={{
             0: { slidesPerView: 1 },
             640: { slidesPerView: 2 },
@@ -61,7 +61,7 @@ const CategoryShowcase = () => {
         >
           {categories.map((category, i) => (
             <SwiperSlide key={category.name + i}>
-              <div className="bg-white border border-[#eaeaea] shadow-md relative group cursor-pointer h-48">
+              <div className="bg-white border border-[#eaeaea] shadow-md relative group cursor-pointer h-36 sm:h-40 md:h-48">
                 <Image
                   src={category.imageUrl}
                   alt={category.name}
@@ -87,13 +87,13 @@ const CategoryShowcase = () => {
                     sizes="10px"
                   />
 
-                  <h3 className="text-2xl font-normal text-gray-800 tracking-tight">
+                  <h3 className="text-base sm:text-lg md:text-2xl font-normal text-gray-800 tracking-tight">
                     {category.name}
                   </h3>
 
                   <a
                     href={category.shopUrl}
-                    className="text-lg font-medium text-[#00adef] hover:text-[#0096cc] flex items-center gap-1.5 transition-colors"
+                    className="text-sm sm:text-base md:text-lg font-medium text-[#00adef] hover:text-[#0096cc] flex items-center gap-1.5 transition-colors"
                   >
                     Shop
                     <svg
@@ -120,7 +120,7 @@ const CategoryShowcase = () => {
         {/* Custom Navigation Buttons */}
         <button
           onClick={() => swiperRef.current?.slidePrev()}
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center cursor-pointer"
+          className="absolute -left-8 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center cursor-pointer"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -137,9 +137,10 @@ const CategoryShowcase = () => {
             />
           </svg>
         </button>
+
         <button
           onClick={() => swiperRef.current?.slideNext()}
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center cursor-pointer"
+          className="absolute -right-8 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center cursor-pointer"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -11,7 +11,7 @@ interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const [imageError, setImageError] = useState(false);
   return (
-    <div className="max-w-70 border border-gray-200 p-5 bg-white font-sans">
+    <div className="w-full max-w-70 mx-auto border border-gray-200 p-5 bg-white font-sans">
       {/* Category */}
       <p className="text-[#333333] text-sm mb-4 capitalize">
         {product.category}

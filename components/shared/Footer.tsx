@@ -4,9 +4,9 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <footer>
-      <div className="bg-[#393939] text-white py-14">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2">
+      <div className="bg-[#393939] text-white py-8 sm:py-10 md:py-14">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-0">
             {/* Contact Column */}
             <div className="flex flex-col gap-4">
               <div className="mb-2">
@@ -72,11 +72,11 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="flex justify-between items-center">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 sm:gap-4">
               {/* Dynamic Link Columns */}
               {footerSections.map((section) => (
                 <div key={section.title}>
-                  <h3 className="text-[#00c2cb] text-xl mb-6">
+                  <h3 className="text-[#00c2cb] text-lg sm:text-xl mb-4 sm:mb-6">
                     {section.title}
                   </h3>
                   <ul className="space-y-3">
@@ -97,7 +97,7 @@ const Footer = () => {
           </div>
 
           {/* Payment Methods Section */}
-          <div className="flex justify-end gap-3 mt-10">
+          <div className="flex flex-wrap justify-center md:justify-end gap-3 mt-8 sm:mt-10">
             <PaymentCard src="/images/visacard.png" alt="Visa" />
             <PaymentCard src="/images/mastercard.png" alt="Mastercard" />
             <PaymentCard src="/images/cod.png" alt="Cash on Delivery" />
@@ -107,7 +107,7 @@ const Footer = () => {
       </div>
 
       <div className="bg-black text-lg py-5">
-        <p className="text-white text-sm  container mx-auto">
+        <p className="text-white text-xs sm:text-sm container mx-auto px-4 text-center md:text-left">
           © 2021 STRATUS99 E-Commerce, Inc. All rights reserved.
         </p>
       </div>

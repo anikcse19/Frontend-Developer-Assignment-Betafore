@@ -60,24 +60,44 @@ const BestDeals = () => {
   };
 
   return (
-    <div className="container mx-auto my-18">
+    <div className="container mx-auto my-8 sm:my-12 md:my-18 px-4">
       {/* Header Section */}
       <div className="flex flex-col md:flex-row md:items-center justify-between border-b border-gray-100 mb-8 pb-2">
         <h1 className="text-2xl font-light text-gray-800 mb-4 md:mb-0">
           <span className="text-[#12b1c1] font-medium">Best</span> Deals
         </h1>
 
-        <div className="flex items-center gap-12">
+        <div className="flex items-center gap-4 md:gap-12">
           {/* Client component for category navigation */}
-          <CategoryNav
-            categories={categories}
-            selectedCategory={selectedCategory}
-            onCategoryChange={handleCategoryChange}
-          />
+          <div className="flex-1 min-w-0 overflow-x-auto">
+            <CategoryNav
+              categories={categories}
+              selectedCategory={selectedCategory}
+              onCategoryChange={handleCategoryChange}
+            />
+          </div>
 
-          <div className="hidden md:flex gap-2 ml-4 -mt-3">
-            <button className="p-1 text-gray-400 hover:text-black">◀</button>
-            <button className="p-1 text-gray-400 hover:text-black">▶</button>
+          <div className="flex shrink-0 gap-2 ml-2 md:ml-4 -mt-3">
+            <button
+              className="p-1 text-gray-400 hover:text-black cursor-pointer"
+              onClick={() => {
+                const idx = categories.findIndex((c) => c.name === selectedCategory);
+                const prev = idx > 0 ? idx - 1 : categories.length - 1;
+                handleCategoryChange(categories[prev].name);
+              }}
+            >
+              ◀
+            </button>
+            <button
+              className="p-1 text-gray-400 hover:text-black cursor-pointer"
+              onClick={() => {
+                const idx = categories.findIndex((c) => c.name === selectedCategory);
+                const next = idx < categories.length - 1 ? idx + 1 : 0;
+                handleCategoryChange(categories[next].name);
+              }}
+            >
+              ▶
+            </button>
           </div>
         </div>
       </div>

@@ -56,9 +56,9 @@ async function NewArrivalsContent() {
 
 const NewArrivals = () => {
   return (
-    <div className="container mx-auto mt-18">
-      <h1 className="ml-7.5 text-[28px]">
-        <p className="text-[#0AAEB9] inline">New</p> Arrivals
+    <div className="container mx-auto mt-8 sm:mt-12 md:mt-18 px-4">
+      <h1 className="ml-0 sm:ml-7.5 text-xl sm:text-2xl md:text-[28px]">
+        <span className="text-[#0AAEB9] inline">New</span> Arrivals
       </h1>
       <Suspense fallback={<NewArrivalsSkeleton />}>
         <NewArrivalsContent />

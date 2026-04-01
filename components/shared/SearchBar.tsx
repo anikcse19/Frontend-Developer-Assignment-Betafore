@@ -7,15 +7,6 @@ import { getProductsByCategory } from "@/features/products/actions/products";
 import { Category } from "@/features/categories/types/categories";
 import { Product } from "@/features/products/types/products";
 
-/**
- * SearchBar — Client Component
- * Receives initial categories and products as props from Server Component.
- * Uses server actions ONLY from user-triggered event handlers (category dropdown click).
- * No useEffect for initial data loading — all initial data comes via props.
- *
- * This ensures 100% compliance: "fetch inside server actions only"
- */
-
 interface SearchBarProps {
   initialCategories: Category[];
   initialProducts: Product[];
@@ -93,7 +84,9 @@ const SearchBar = ({ initialCategories, initialProducts }: SearchBarProps) => {
           onClick={() => setOpen(!open)}
           className="flex items-center px-2 sm:px-3 md:px-4 py-2 text-gray-500 hover:bg-gray-50 transition-colors outline-none"
         >
-          <span className="text-xs sm:text-sm mr-1 sm:mr-2 truncate max-w-[80px] sm:max-w-[120px]">{category}</span>
+          <span className="text-xs sm:text-sm mr-1 sm:mr-2 truncate max-w-[80px] sm:max-w-[120px]">
+            {category}
+          </span>
           <ChevronDown
             size={14}
             className="text-gray-400 transition-transform shrink-0"
@@ -149,7 +142,9 @@ const SearchBar = ({ initialCategories, initialProducts }: SearchBarProps) => {
       {showResults && (
         <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-md shadow-lg z-50 max-h-80 overflow-y-auto">
           {loading ? (
-            <p className="px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-400">Loading...</p>
+            <p className="px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-400">
+              Loading...
+            </p>
           ) : filtered.length > 0 ? (
             filtered.slice(0, 8).map((product) => (
               <div
@@ -176,7 +171,9 @@ const SearchBar = ({ initialCategories, initialProducts }: SearchBarProps) => {
               </div>
             ))
           ) : (
-            <p className="px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-400">No products found</p>
+            <p className="px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-400">
+              No products found
+            </p>
           )}
         </div>
       )}

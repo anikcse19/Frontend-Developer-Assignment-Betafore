@@ -28,8 +28,6 @@ const SearchBar = () => {
       .catch(() => {});
   }, []);
 
-  const initialFetch = useRef<Promise<void> | null>(null);
-
   const fetchProducts = useCallback((cat: string) => {
     setLoading(true);
     const request =
@@ -41,12 +39,12 @@ const SearchBar = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  // One-time initialization using the approved null-check pattern
-  if (initialFetch.current == null) {
-    initialFetch.current = getAllProducts()
+  // Initial product fetch on mount
+  useEffect(() => {
+    getAllProducts()
       .then(setProducts)
       .catch(() => setProducts([]));
-  }
+  }, []);
 
   const handleCategoryChange = (cat: string) => {
     setCategory(cat);

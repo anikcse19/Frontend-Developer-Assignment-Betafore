@@ -1,3 +1,4 @@
+import ScrollWrapper from "@/components/client/ScrollWrapper";
 import BestDeals from "@/features/products/components/BestDeals";
 import HeroSection from "@/components/home/HeroSection";
 import NewArrivals from "@/features/products/components/NewArrivals";
@@ -21,12 +22,13 @@ export default async function Home() {
     : [];
 
   return (
-    <div className="m-0 p-0">
-      <Navbar categories={categories} products={allProducts} />
+    <ScrollWrapper>
+      <div className="m-0 p-0">
+        <Navbar categories={categories} products={allProducts} />
       <Toolbar />
       <HeroSection />
       <CategoryShowcase categories={categories} />
-      <NewArrivals />
+      <NewArrivals initialProducts={allProducts} />
       <BestDeals
         initialCategories={categories}
         initialProducts={categoryProducts}
@@ -34,5 +36,6 @@ export default async function Home() {
       />
       <Footer />
     </div>
+    </ScrollWrapper>
   );
 }

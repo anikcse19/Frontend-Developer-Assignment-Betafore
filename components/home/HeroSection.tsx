@@ -70,7 +70,7 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="relative w-full xl:aspect-1400/318 overflow-hidden">
+    <div className="relative w-full aspect-[16/9] md:aspect-[21/9] lg:aspect-[1400/400] xl:aspect-1400/318 overflow-hidden min-h-[300px]">
       {/* Background Image */}
       <div className="absolute inset-0 -z-10 transition-opacity duration-500">
         <Image

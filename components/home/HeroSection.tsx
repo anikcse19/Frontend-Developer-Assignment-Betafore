@@ -135,7 +135,7 @@ const HeroSection = () => {
       </div>
 
       {/* Navigation Dots - Bottom Center */}
-      <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 sm:gap-3">
+      <div className="absolute bottom-4 sm:bottom-6 md:bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 sm:gap-3">
         {slides.map((_, index) => (
           <button
             key={index}

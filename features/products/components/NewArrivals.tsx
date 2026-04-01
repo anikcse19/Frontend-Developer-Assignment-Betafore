@@ -1,8 +1,8 @@
 import ProductCard from "@/components/product/ProductCard";
 import ProductCardSkeleton from "@/components/shared/LoadingSkeleton";
-import { getAllProducts } from "../actions/products";
 import { Suspense } from "react";
 import { Product } from "../types/products";
+import { API_CONFIG } from "@/lib/constants";
 
 function NewArrivalsSkeleton() {
   return (
@@ -19,7 +19,14 @@ async function NewArrivalsContent() {
   let error = false;
 
   try {
-    products = await getAllProducts();
+    const response = await fetch(`${API_CONFIG.BASE_URL}/products`, {
+      next: { revalidate: API_CONFIG.CACHE_TIME.DEFAULT },
+    });
+    if (!response.ok) {
+      throw new Error(`Failed to fetch products (status: ${response.status})`);
+    }
+    const data = await response.json();
+    products = data.data || [];
   } catch {
     error = true;
   }

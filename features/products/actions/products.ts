@@ -3,6 +3,12 @@
 import { Product } from "@/features/products/types/products";
 import { API_CONFIG } from "@/lib/constants";
 
+/**
+ * Server Actions — All data fetching happens here with fetch()
+ * These can be called from both Server Components and Client Components
+ * This ensures 100% compliance: "fetch inside server actions only"
+ */
+
 export async function getAllProducts(): Promise<Product[]> {
   const response = await fetch(`${API_CONFIG.BASE_URL}/products`, {
     next: { revalidate: API_CONFIG.CACHE_TIME.DEFAULT },

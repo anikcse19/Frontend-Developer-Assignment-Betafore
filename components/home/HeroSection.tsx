@@ -17,7 +17,7 @@ const HeroSection = () => {
 
       <div className="relative container mx-auto z-10 h-full grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-center px-4 py-4 sm:py-6 md:py-8">
         {/* Left Content */}
-        <div className="z-10 max-w-lg">
+        <div className="z-10 max-w-lg lg:pl-3">
           <h1 className="text-2xl md:text-3xl lg:text-5xl font-light text-[#333333] leading-tight">
             Shop <span className="text-[#0AAEB9]">Computer</span>
             <br />

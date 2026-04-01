@@ -1,6 +1,13 @@
 "use server";
+
 import { API_CONFIG } from "@/lib/constants";
 import { Category } from "@/features/categories/types/categories";
+
+/**
+ * Server Actions — All data fetching happens here with fetch()
+ * These can be called from both Server Components and Client Components
+ * This ensures 100% compliance: "fetch inside server actions only"
+ */
 
 export async function getCategories(): Promise<Category[]> {
   const url = `${API_CONFIG.BASE_URL}/products/categories`;

@@ -16,7 +16,7 @@ const Footer = () => {
                     alt="Logo"
                     width={132}
                     height={50}
-                    className="w-auto! h-auto!"
+                    className=""
                   />
                 </div>
               </div>
@@ -97,7 +97,7 @@ const Footer = () => {
           </div>
 
           {/* Payment Methods Section */}
-          <div className="flex flex-wrap justify-center md:justify-end gap-3 mt-8 sm:mt-10">
+          <div className="flex flex-wrap justify-center md:justify-end gap-3 mt-8 sm:mt-10 xl:pr-16">
             <PaymentCard src="/images/visacard.png" alt="Visa" />
             <PaymentCard src="/images/mastercard.png" alt="Mastercard" />
             <PaymentCard src="/images/cod.png" alt="Cash on Delivery" />

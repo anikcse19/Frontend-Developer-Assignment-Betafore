@@ -1,49 +1,37 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { CategoryNav } from "../../categories/components/CategoryNav";
 import ProductCard from "@/components/product/ProductCard";
 import ProductCardSkeleton from "@/components/shared/LoadingSkeleton";
 import { ErrorAlert } from "@/components/shared/ErrorAlert";
 import { getProductsByCategory } from "@/features/products/actions/products";
-import { getCategories } from "@/features/categories/actions/categories";
 import { Category } from "@/features/categories/types/categories";
 import { Product } from "../types/products";
 import { handleError } from "@/lib/error-handler";
 
-const BestDeals = () => {
-  const [categories, setCategories] = useState<Category[]>([]);
-  const [products, setProducts] = useState<Product[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState<string>("");
-  const [isLoading, setIsLoading] = useState(true);
+
+
+interface BestDealsProps {
+  initialCategories: Category[];
+  initialProducts: Product[];
+  initialCategory: string;
+}
+
+const BestDeals = ({
+  initialCategories,
+  initialProducts,
+  initialCategory,
+}: BestDealsProps) => {
+  const [categories] = useState<Category[]>(initialCategories);
+  const [products, setProducts] = useState<Product[]>(initialProducts);
+  const [selectedCategory, setSelectedCategory] =
+    useState<string>(initialCategory);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const loadData = useCallback(async () => {
-    try {
-      setIsLoading(true);
-      setError(null);
-
-      const cats = await getCategories();
-      setCategories(cats);
-
-      const initialCategory = cats[0]?.name || "";
-      setSelectedCategory(initialCategory);
-
-      const prods = await getProductsByCategory(initialCategory);
-      setProducts(prods);
-    } catch (err) {
-      const appError = handleError(err, { url: window.location.href });
-      setError(appError.message);
-    } finally {
-      setIsLoading(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    loadData();
-  }, [loadData]);
-
-  const handleCategoryChange = async (categoryName: string) => {
+  // Server action called ONLY from user-triggered event handler
+  const handleCategoryChange = useCallback(async (categoryName: string) => {
     try {
       setSelectedCategory(categoryName);
       setIsLoading(true);
@@ -57,7 +45,7 @@ const BestDeals = () => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, []);
 
   return (
     <div className="container mx-auto my-8 sm:my-12 md:my-18 px-4">
@@ -81,7 +69,9 @@ const BestDeals = () => {
             <button
               className="p-1 text-gray-400 hover:text-black cursor-pointer"
               onClick={() => {
-                const idx = categories.findIndex((c) => c.name === selectedCategory);
+                const idx = categories.findIndex(
+                  (c) => c.name === selectedCategory,
+                );
                 const prev = idx > 0 ? idx - 1 : categories.length - 1;
                 handleCategoryChange(categories[prev].name);
               }}
@@ -91,7 +81,9 @@ const BestDeals = () => {
             <button
               className="p-1 text-gray-400 hover:text-black cursor-pointer"
               onClick={() => {
-                const idx = categories.findIndex((c) => c.name === selectedCategory);
+                const idx = categories.findIndex(
+                  (c) => c.name === selectedCategory,
+                );
                 const next = idx < categories.length - 1 ? idx + 1 : 0;
                 handleCategoryChange(categories[next].name);
               }}
@@ -108,7 +100,7 @@ const BestDeals = () => {
           message={error}
           severity="medium"
           title="Failed to load deals"
-          onRetry={loadData}
+          onRetry={() => handleCategoryChange(selectedCategory)}
           onDismiss={() => setError(null)}
         />
       )}

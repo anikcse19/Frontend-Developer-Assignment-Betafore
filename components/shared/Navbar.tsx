@@ -3,14 +3,20 @@
 import { useState } from "react";
 import Image from "next/image";
 import SearchBar from "./SearchBar";
+import { Category } from "@/features/categories/types/categories";
+import { Product } from "@/features/products/types/products";
 
-const Navbar = () => {
+interface NavbarProps {
+  categories: Category[];
+  products: Product[];
+}
+
+const Navbar = ({ categories, products }: NavbarProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <div className="bg-[#03484D]">
       <div className="container mx-auto py-3.5 px-4">
-        {/* Top row: Logo + hamburger (mobile/tablet) or full layout (desktop) */}
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Image
@@ -18,13 +24,16 @@ const Navbar = () => {
             alt="Logo"
             width={132}
             height={48}
-            className="w-auto! h-auto!"
+            className=""
             loading="eager"
           />
 
           {/* Search bar - hidden on mobile/tablet, visible on lg+ */}
           <div className="hidden lg:block flex-1 mx-8">
-            <SearchBar />
+            <SearchBar
+              initialCategories={categories}
+              initialProducts={products}
+            />
           </div>
 
           {/* Right side icons + info - hidden on mobile/tablet */}
@@ -47,7 +56,7 @@ const Navbar = () => {
                 <p>Sign In</p>
               </div>
             </div>
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-6 pr-6">
               <Image
                 src="/icons/user.png"
                 alt="User Icon"
@@ -118,7 +127,10 @@ const Navbar = () => {
         {menuOpen && (
           <div className="lg:hidden mt-4 space-y-4 pb-2">
             {/* Search bar */}
-            <SearchBar />
+            <SearchBar
+              initialCategories={categories}
+              initialProducts={products}
+            />
 
             {/* Contact & actions */}
             <div className="flex items-center justify-between text-white">
